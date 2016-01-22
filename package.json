@@ -1,7 +1,7 @@
 {
-  "name": "React",
-  "version": "0.0.0",
-  "description": "",
+  "name": "ReactAtWorkTry",
+  "version": "0.0.1",
+  "description": "Il s'agit d'une installation basique pour tester les possibilités de React",
   "main": "index.js",
   "dependencies": {
     "babelify": "~7.2.0",
@@ -13,6 +13,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "gfouillard@cardiweb.com",
   "license": "ISC"
 }
