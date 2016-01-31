@@ -4,6 +4,10 @@
 from flask import Flask
 from flask.ext.restful import  reqparse, abort, Api, Resource
 from flask_restful_swagger import swagger
+import logging
+
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR) #LOGGING LEVELS
 
 app = Flask(__name__)
 
@@ -110,4 +114,4 @@ def docs():
   return redirect('/static/docs.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=8090, debug=True)
