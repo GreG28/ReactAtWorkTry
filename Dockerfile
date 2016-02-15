@@ -9,7 +9,7 @@ EXPOSE 80
 
 RUN apt-get install -y -q nodejs npm vim
 
-RUN apt-get update && apt-get install -y -q --fix-missing apt-utils python python-dev python-pip
+RUN apt-get update && apt-get install -y -q --fix-missing apt-utils python python-dev python-pip locate
 
 RUN apt-get -y autoclean && apt-get -y autoremove
 

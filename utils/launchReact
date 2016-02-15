@@ -9,31 +9,27 @@
 # Description:       Enable launchReact provided by daemon.
 ### END INIT INFO
 
-pid_file=/var/run/launchReact.pid
 log_file=/usr/local/sbin/api/output.log
+
 case "$1" in
 
   start)
-    touch $pid_file
     touch $log_file
-    echo -n " Starting launchReact : "
+    echo " --- Starting launchReact : "
     exec python /usr/local/sbin/api/api.py > $log_file 2>&1 &
-    echo $! > $pid_file
-    echo $LANG
-    echo " Started [ok] "
+    echo " --- Started [ok] "
     exit 0
     ;;
   stop)
-    echo -n " Shutting down launchReact : "
-    PID=$(cat $pid_file)
-    kill -9 $PID
-    echo " Stopped [ok] "
-    rm -f $pid_file
+    echo " --- Shutting down launchReact : "
+    pidof python | xargs kill -9
+    echo " --- Stopped [ok] "
     exit 0
     ;;
   status)
-    cat $pid_file
+    echo " --- LOG FILE : "
     cat $log_file
+    echo " --- END OF LOG FILE"
     exit 0
     ;;
   restart)
@@ -42,7 +38,7 @@ case "$1" in
     exit 0
     ;;
   *)
-    echo "Usage: $0 {start|stop|restart|status}"
+    echo " Usage: $0 {start|stop|restart|status} "
     exit 1
 
 esac

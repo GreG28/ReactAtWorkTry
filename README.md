@@ -66,10 +66,10 @@ La documentation de l'API est disponible à l'adresse suivante `/api/spec.html`
 # TODO LIST
 
 - [x] Créer DockerFile
-- [ ] Mettre à jours la documentation du projet
+- [x] Mettre à jours la documentation du projet
 - [ ] Mettre à jours la documentation de l'API
-- [ ] Ecrire script pour connaitre l'IP du conteneur et lancer le serveur Flask-RESTful pour l'API
-- [ ] Créer une tâche dans le script au démarrage du conteneur
+- [x] Créer une tâche dans le script au démarrage du conteneur
+- [x] Ecrire script pour lancer le serveur Flask-RESTful pour l'API
 - [ ] Nettoyer l'API pour enlever les exemples de Flask-RESTful
 - [ ] Ranger le projet pour mieux séparer l'api du front React
 - [ ] Monter séparement les volumes pour mieux maitriser les impacts
