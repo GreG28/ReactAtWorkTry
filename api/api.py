@@ -7,7 +7,7 @@ from flask_restful_swagger import swagger
 import logging
 from logging.handlers import RotatingFileHandler
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 ###################################
 # Wrap the Api with swagger.docs. It is a thin wrapper around the Api class that adds some swagger smarts
@@ -41,6 +41,11 @@ parser.add_argument('task')
 # From the request headers
 parser.add_argument('User-Agent', location='headers')
 
+@swagger.model
+class TodoItemWithArgs:
+  def __init__(self, arg1, arg2, arg3='123'):
+    pass
+
 
 # Todo
 # shows a single todo item and lets you delete a todo item
@@ -53,7 +58,30 @@ class Todo(Resource):
         abort_if_todo_doesnt_exist(todo_id)
         return TODOS[todo_id]
 
-    @swagger.operation()
+    @swagger.operation(notes='Delete TODO',
+        responseClass=TodoItemWithArgs.__name__,
+        nickname='delete',
+        parameters=[
+            {
+              "name": "body",
+              "description": "blueprint object that needs to be added. JSON.",
+              "required": True,
+              "allowMultiple": False,
+              "dataType": str.__name__,
+              "paramType": "body"
+            }
+          ],
+        responseMessages=[
+            {
+              "code": 201,
+              "message": "Created. The URL of the created blueprint should be in the Location header"
+            },
+            {
+              "code": 405,
+              "message": "Invalid input"
+            }
+          ]
+        )
     def delete(self, todo_id):
         abort_if_todo_doesnt_exist(todo_id)
         del TODOS[todo_id]
@@ -115,10 +143,15 @@ api.add_resource(Task, '/tasks/<task_id>', endpoint="TASK")
 
 @app.route('/docs')
 def docs():
-  return redirect('/static/docs.html')
+    return redirect('/static/docs.html')
+
+@app.route('/')
+def root():
+    print(' Local file ? ')
+    return app.send_static_file('../index.html')
 
 if __name__ == '__main__':
     handler = RotatingFileHandler('output.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.DEBUG)
     app.logger.addHandler(handler)
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=8090, debug=True)

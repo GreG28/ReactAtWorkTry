@@ -17,6 +17,7 @@ case "$1" in
     touch $log_file
     echo " --- Starting launchReact : "
     exec python /usr/local/sbin/api/api.py > $log_file 2>&1 &
+    (cd /usr/local/sbin/server && exec python -m SimpleHTTPServer 8080 > /dev/null 2>&1 &)
     echo " --- Started [ok] "
     exit 0
     ;;

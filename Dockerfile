@@ -5,7 +5,7 @@ MAINTAINER GreG <gfouillard@cardiweb.com>
 
 RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q --fix-missing && apt-get -y -q autoclean && apt-get -y -q autoremove)
 
-EXPOSE 80
+EXPOSE 80 8080 8090
 
 RUN apt-get install -y -q nodejs npm vim
 
@@ -29,6 +29,6 @@ RUN update-rc.d launchReact defaults
 
 RUN echo "service launchReact start" >> /root/.bashrc
 
-WORKDIR /usr/local/sbin
+WORKDIR /usr/local/sbin/server
 
 RUN npm install

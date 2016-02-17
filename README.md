@@ -34,6 +34,11 @@ Démmarer le conteneur et rediriger le port 8080 de l'host vers le port 80 du co
 $> sudo docker run --rm -it -v `pwd`:/usr/local/sbin --expose 8080 -p 8080:80 react-devteam
 ```
 
+Démmarer le conteneur et rediriger les port 8080 de l'host vers le port  8080 du conteneur et 8090 de l'host vers le port 8090 du conteneur
+```
+$> sudo docker run --rm -it -v `pwd`:/usr/local/sbin --expose 8080 --expose 8090 -p 8080:8080 -p 8090:8090 react-devteam
+```
+
 
 ## Trouver l'IP du conteneur
 
@@ -48,7 +53,7 @@ $> 125: eth0@if126: <BROADCAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP grou
 ```
 ici il s'agit de `172.17.0.61`
 
-## Lancement du serveur Flask-RESTful sur le port : 80
+## Lancement du serveur Flask-RESTful sur le port : 8080
 
 Pour plus d'informations sur le fonctionnement de Flask-RESTful cliquez [ici](http://flask-restful-cn.readthedocs.org/en/latest/ "Flask-RESTful - User’s Guide").
 
@@ -63,6 +68,9 @@ Le projet est disponible [ici](https://github.com/rantav/flask-restful-swagger "
 
 La documentation de l'API est disponible à l'adresse suivante `/api/spec.html`
 
+
+L'api est maintenant lancée par un service au demarrage du conteneur du nom de "launchReact" disponible dans le dossie "utils".
+
 # TODO LIST
 
 - [x] Créer DockerFile
@@ -71,7 +79,7 @@ La documentation de l'API est disponible à l'adresse suivante `/api/spec.html`
 - [x] Créer une tâche dans le script au démarrage du conteneur
 - [x] Ecrire script pour lancer le serveur Flask-RESTful pour l'API
 - [ ] Nettoyer l'API pour enlever les exemples de Flask-RESTful
-- [ ] Ranger le projet pour mieux séparer l'api du front React
+- [x] Ranger le projet pour mieux séparer l'api du front React
 - [ ] Monter séparement les volumes pour mieux maitriser les impacts
 - [ ] Définir les objectifs du projet pour la fin
 - [ ] Ajouter les packages aux dépendances
