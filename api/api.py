@@ -75,6 +75,8 @@ class TodoList(Resource):
     def get(self):
         return TODOS
 
+    @swagger.operation(notes='POST TODOS',
+      nickname='postTodos')
     def post(self):
         args = parser.parse_args()
         todo_id = int(max(TODOS.keys()).lstrip('todo')) + 1
@@ -85,15 +87,19 @@ class TodoList(Resource):
 # Todo
 # shows a single todo item and lets you delete a todo item
 class Task(Resource):
+
+    @swagger.operation()
     def get(self, task_id):
         abort_if_task_doesnt_exist(task_id)
         return TASKS[task_id]
 
+    @swagger.operation()
     def delete(self, task_id):
         abort_if_task_doesnt_exist(task_id)
         del TASKS[task_id]
         return '', 204
 
+    @swagger.operation()
     def put(self, task_id):
         args = parser.parse_args()
         task = {'task': args['task']}
@@ -105,7 +111,7 @@ class Task(Resource):
 ##
 api.add_resource(TodoList, '/todos', endpoint="All TODOS")
 api.add_resource(Todo, '/todos/<todo_id>', endpoint="TODOS specific id")
-api.add_resource(Task, '/tasks/<task_id>', endpoint="Tasks")
+api.add_resource(Task, '/tasks/<task_id>', endpoint="TASK")
 
 @app.route('/docs')
 def docs():

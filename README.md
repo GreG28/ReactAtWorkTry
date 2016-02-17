@@ -31,7 +31,7 @@ $> sudo docker run --rm -it -v `pwd`:/usr/local/sbin --net=host -p 8080:80 react
 
 Démmarer le conteneur et rediriger le port 8080 de l'host vers le port 80 du conteneur
 ```
-$> sudo docker run --rm -it -v `pwd`:/usr/local/sbin --net=host -p 8080:80 react-devteam
+$> sudo docker run --rm -it -v `pwd`:/usr/local/sbin --expose 8080 -p 8080:80 react-devteam
 ```
 
 
