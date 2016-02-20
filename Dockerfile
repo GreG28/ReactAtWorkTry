@@ -15,7 +15,7 @@ RUN apt-get -y autoclean && apt-get -y autoremove
 
 RUN npm config set prefix /usr/local
 
-RUN pip install flask-restful-swagger
+RUN pip install flask-restful-swagger flask-cors
 
 RUN npm install -g bower webpack
 
