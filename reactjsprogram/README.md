@@ -1,4 +1,4 @@
-# DockerFile pour apprendre React avec le cours disponible sur [reactjsprogram.com](reactjsprogram.com)
+# DockerFile pour apprendre React avec le cours disponible sur [reactjsprogram.com](http://reactjsprogram.com)
 
 
 ## Création de l'environnement
