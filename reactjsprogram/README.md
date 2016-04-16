@@ -18,7 +18,7 @@ $> cd dev
 Ensuite vous pouvez lancez le conteneur
 
 ```
-$> sudo docker run --rm -it -v `pwd`:/usr/local/sbin react-js-programm
+$> sudo docker run -it -v `pwd`:/usr/local/sbin/reactjsprogramm react-js-programm
 ```
 
 Cette commande à également montée le répertoire courant vers le dossier de travail dans le conteneur
