@@ -18,7 +18,7 @@ $> cd dev
 Ensuite vous pouvez lancez le conteneur
 
 ```
-$> sudo docker run -it -v `pwd`:/usr/local/sbin/reactjsprogramm react-js-programm
+$> sudo docker run -it -v `pwd`:/usr/local/sbin/reactjsprogramm -p 8080:8080 react-js-programm
 ```
 
 Cette commande à également montée le répertoire courant vers le dossier de travail dans le conteneur
@@ -30,6 +30,13 @@ Pour plus d'informations concernant l'utilisation de Docker veuillez lire [ceci]
 Commande pour que webpack s'execute dès la modification d'un fichier
 ```
 $> webpack -w
+```
+
+# Tips :
+
+La commande suivante permet de changer l'host du serveur et donc d'y accèder depuis l'exterieur du conteneur
+```
+$> webpack-dev-server --host 0.0.0.0
 ```
 
 # TODO LIST
