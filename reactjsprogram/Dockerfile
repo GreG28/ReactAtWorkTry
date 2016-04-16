@@ -15,7 +15,7 @@ RUN apt-get -y autoclean && apt-get -y autoremove
 
 RUN npm config set prefix /usr/local/sbin
 
-RUN npm install -g bower webpack
+COPY ./dev /usr/local/sbin
 
 RUN cd /usr/local/sbin && npm install
 
