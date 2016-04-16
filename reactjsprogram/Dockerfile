@@ -7,7 +7,7 @@ RUN (apt-get update && apt-get upgrade -y -q && apt-get dist-upgrade -y -q --fix
 
 EXPOSE 8080
 
-RUN apt-get install -y -q nodejs node npm vim
+RUN apt-get install -y -q nodejs npm vim
 
 RUN apt-get update && apt-get install -y -q --fix-missing apt-utils locate
 
@@ -16,6 +16,9 @@ RUN apt-get -y autoclean && apt-get -y autoremove
 ENV PATH /usr/local/sbin/bin:$PATH
 
 RUN npm config set prefix /usr/local/sbin
+
+RUN ln -s /usr/bin/nodejs /usr/local/bin/node
+RUN ln -s /usr/bin/npm /usr/local/bin/npm
 
 RUN npm install -g webpack
 

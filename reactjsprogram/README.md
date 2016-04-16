@@ -25,6 +25,13 @@ Cette commande à également montée le répertoire courant vers le dossier de t
 
 Pour plus d'informations concernant l'utilisation de Docker veuillez lire [ceci](../README.md)
 
+# Webpack
+
+Commande pour que webpack s'execute dès la modification d'un fichier
+```
+$> webpack -w
+```
+
 # TODO LIST
 
 - [x] Créer DockerFile
