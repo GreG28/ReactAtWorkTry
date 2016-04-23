@@ -10,6 +10,7 @@
   "author": "GreG28 <gregoire.fouillard@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.10.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-router": "^2.0.0-rc5"
