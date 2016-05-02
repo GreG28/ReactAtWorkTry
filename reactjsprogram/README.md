@@ -9,6 +9,19 @@ Pour commencer à utiliser le projet vous devez construire l'image docker
 $> sudo docker build -t react-js-programm .
 ```
 
+
+Sous windows à l'ouverture d'un nouveau shell ou powershell tapez les commande suivantes :
+
+Shell
+```
+$> docker-machine env --shell cmd default
+```
+
+Powershell
+```
+$> docker-machine env --shell powershell default | Invoke-Expression
+```
+
 Se placer dans le répertoire "dev"
 
 ```
