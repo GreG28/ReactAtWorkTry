@@ -34,6 +34,10 @@ Ensuite vous pouvez lancez le conteneur
 $> sudo docker run -it -v `pwd`:/usr/local/sbin/reactjsprogramm -p 8080:8080 react-js-programm
 ```
 
+Pour windows voici quelques liens pour cela fonctionne :
+* [port exposure on windows = ?](https://github.com/docker/docker/issues/15740)
+* [Container port redirection](https://docs.docker.com/engine/installation/windows/#container-port-redirection)
+
 Cette commande à également montée le répertoire courant vers le dossier de travail dans le conteneur
 
 Pour plus d'informations concernant l'utilisation de Docker veuillez lire [ceci](../README.md)
