@@ -34,6 +34,12 @@ Ensuite vous pouvez lancez le conteneur
 $> sudo docker run -it -v `pwd`:/usr/local/sbin/reactjsprogramm -p 8080:8080 react-js-programm
 ```
 
+Sous windows
+```
+$> docker run -it -v <path>:/usr/local/sbin/reactjsprogramm -p 8080:8080 react-js-programm
+```
+Le path doit être écrit de cette manière "/c/Users/gregoire/Documents/ReactAtWorkTry/reactjsprogram/dev"
+
 Pour windows voici quelques liens pour cela fonctionne :
 * [port exposure on windows = ?](https://github.com/docker/docker/issues/15740)
 * [Container port redirection](https://docs.docker.com/engine/installation/windows/#container-port-redirection)
